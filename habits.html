@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Heh?</title>
+    <style>
+      /* Light Mode */
+      body {
+        background-color: #FFF;
+        color: #000;
+        text-align: center;
+        font-size: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        transition: all 0.5s ease-in-out;
+      }
+      
+      /* Dark Mode */
+      body.dark-mode {
+        background-color: #222;
+        color: #FFF;
+        transition: all 0.5s ease-in-out;
+      }
+
+      /* Hidden in Light Mode */
+      #hidden-text {
+        display: none;
+      }
+
+      /* Footer */
+      footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      /* Copyright */
+      .copyright {
+        color: #666;
+      }
+
+      /* Copyright in Dark Mode */
+      body.dark-mode .copyright {
+        color: #CCC;
+      }
+
+      /* Fade in animation */
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      #hello-text {
+        animation: fade-in 1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body onclick="handleClick()">
+    <div id="hello-text">Hello</div>
+    <div id="hidden-text">Nothing to show here</div>
+    <footer>
+      <p>&copy; 2023 PHX </p>
+      <p class="copyright">
+        All rights reserved.
+      </p>
+    </footer>
+    <script>
+      let clickCount = 0;
+      
+      function handleClick() {
+        clickCount++;
+        if (clickCount >= 3) {
+          document.getElementById("hello-text").style.display = "none";
+          document.getElementById("hidden-text").style.display = "block";
+          document.body.classList.add("dark-mode");
+        }
+      }
+    </script>
+  </body>
+</html>
